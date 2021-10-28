@@ -1,0 +1,44 @@
+body {
+	font-family: 'Dosis', sans-serif;
+	color: ghostwhite;
+	background-color: black;
+}
+#title {
+	display: none;
+}
+.index {
+	background-image: url(../assets/images/flight3.jpg);
+	background-size: cover;
+}
+.bg-flight {
+	background-image: url(../assets/images/flight4.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bg-black {
+	background-color: black;
+}
+.welcome {
+	color: ghostwhite;
+	position: relative;
+	top: 50px;
+	text-align: center;
+	text-shadow: 2px 2px black;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+}
+.form-position {
+	position: relative;
+	bottom: 500px;
+}
+h1 {
+	font-size: 12rem;
+}
+h3 {
+	font-size: 3rem;
+}
+.modal-content {
+	background-color: black;
+}

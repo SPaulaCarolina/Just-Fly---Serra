@@ -1,0 +1,21 @@
+[{"origen":"buenos aires, argentina","destino":"mendoza, argentina","fecha":"01/10/2021","hora":"06:20 am","id":1,"nombre":"AR0001 Aerolineas Argentinas.","precio":500},
+{"origen":"buenos aires, argentina","destino":"mendoza, argentina","fecha":"01/10/2021","hora":"07:45 am","id":2,"nombre":"JS0001 JetSMART 01 Oct 07:45 am.","precio":300},
+{"origen":"buenos aires, argentina","destino":"mendoza, argentina","fecha":"01/10/2021","hora":"20:15 pm","id":3,"nombre":"AR0002 Aerolineas Argentinas 01 Oct 20:15 pm.","precio":450},
+{"origen":"buenos aires, argentina","destino":"cordoba, argentina","fecha":"01/10/2021","hora":"08:20 am","id":4,"nombre":"JS0002 JetSMART 01 Oct 08:20 am.","precio":700},
+{"origen":"buenos aires, argentina","destino":"cordoba, argentina","fecha":"01/10/2021","hora":"21:10 pm","id":5,"nombre":"AR0003 Aerolineas Argentinas 01 Oct 21:10 pm.","precio":350},
+{"origen":"buenos aires, argentina","destino":"santa cruz, argentina","fecha":"01/10/2021","hora":"07:30 am","id":6,"nombre":"AR0004 Aerolineas Argentinas 01 Oct 07:30 am.","precio":800},
+{"origen":"buenos aires, argentina","destino":"santa cruz, argentina","fecha":"01/10/2021","hora":"15:00 pm","id":7,"nombre":"FLY0001 FlyBondi 01 Oct 15:00 pm.","precio":600},
+{"origen":"buenos aires, argentina","destino":"salta, argentina","fecha":"01/10/2021","hora":"19:30 pm","id":8,"nombre":"FLY0002 FlyBondi 01 Oct 19:30 pm.","precio":850},
+{"origen":"buenos aires, argentina","destino":"salta, argentina","fecha":"01/10/2021","hora":"06:20 am","id":9,"nombre":"JS0003 JetSMART 01 Oct 04:50 am.","precio":900},
+{"origen":"buenos aires, argentina","destino":"cordoba, argentina","fecha":"01/10/2021","hora":"06:20 am","id":10,"nombre":"AUS0001 Austral 01 Oct 23:50 pm.","precio":420},
+{"origen":"buenos aires, argentina","destino":"jujuy, argentina","fecha":"01/10/2021","hora":"06:20 am","id":11,"nombre":"JS0004 JetSMART 01 Oct 07:45 am.","precio":300},
+{"origen":"buenos aires, argentina","destino":"misiones, argentina","fecha":"01/10/2021","hora":"06:20 am","id":12,"nombre":"AR0005 Aerolineas Argentinas 01 Oct 20:15 pm.","precio":450},
+{"origen":"buenos aires, argentina","destino":"rio negro, argentina","fecha":"01/10/2021","hora":"06:20 am","id":13,"nombre":"JS0005 JetSMART 01 Oct 08:20 am.","precio":700},
+{"origen":"buenos aires, argentina","destino":"chubut, argentina","fecha":"01/10/2021","hora":"06:20 am","id":14,"nombre":"AR0006 Aerolineas Argentinas 01 Oct 21:10 pm.","precio":350},
+{"origen":"buenos aires, argentina","destino":"tucuman, argentina","fecha":"01/10/2021","hora":"06:20 am","id":15,"nombre":"AR0007 Aerolineas Argentinas 01 Oct 07:30 am.","precio":800},
+{"origen":"buenos aires, argentina","destino":"san luis, argentina","fecha":"01/10/2021","hora":"06:20 am","id":16,"nombre":"FLY0003 FlyBondi 01 Oct 15:00 pm.","precio":600},
+{"origen":"buenos aires, argentina","destino":"jujuy, argentina","fecha":"01/10/2021","hora":"06:20 am","id":17,"nombre":"FLY0004 FlyBondi 01 Oct 19:30 pm.","precio":850},
+{"origen":"buenos aires, argentina","destino":"entre rios, argentina","fecha":"01/10/2021","hora":"06:20 am","id":18,"nombre":"JS0006 JetSMART 01 Oct 04:50 am.","precio":900},
+{"origen":"buenos aires, argentina","destino":"neuquen, argentina","fecha":"01/10/2021","hora":"06:20 am","id":19,"nombre":"AUS0002 Austral 01 Oct 23:50 pm.","precio":420}]
+
+

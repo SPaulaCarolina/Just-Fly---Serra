@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+	<meta name="description" content="">
+   	<meta name="keywords"  content="">
+	<title>Homepage Just fly</title> 
+	<link rel="icon" type="image/png" href="">
+	<!-- Google fonts -->
+	<link rel = "preconnect" href = "https://fonts.googleapis.com">
+	<link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+   	<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- AOS CSS -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- Mi CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-lg-12">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				  <a class="navbar-brand" href="#">JUST FLY</a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      <li class="nav-item active">
+				        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+				      </li>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="#">Check in</a>
+				          <a class="dropdown-item" href="#">Inicar sesion</a>
+				        </div>
+				      </li>
+				    </ul>
+				    <div id="carrito" class="btn-group dropleft">
+					  <button id="btnCarrito" type="button" class="btn btn-outline-light dropdown-toggle mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mis vuelos <span id="miSeleccion" class="badge badge-light">0</span></button>
+					  <div id="misVuelos" class="dropdown-menu p-2">
+					  </div>
+					</div>
+				    <form class="form-inline my-2 my-lg-0">
+				      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+				    </form>
+				  </div>
+				</nav>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-lg-12">
+				<img src="../assets/images/flight4.jpg" width="100%">
+			</div>
+		</div>
+		<div class="row form-position">
+			<div class="col-xs-12 col-lg-12">
+				<div class="col-xs-6 col-lg-6">
+					<div class="text-white">
+					  <div class="card-img-overlay">
+						<h3 id="welcome">Bienvenido/a</h3>
+					    <h5 class="card-title">Selecciona tu vuelo:</h5>
+					    <form id="formVuelos">
+						  	<div class="form-row">
+						    	<div class="col">
+						      		<input type="text" list="origen" name="origen" id="filtroOrigen" class="form-control filter" placeholder="Origen">
+						    		<datalist id="origen" class="form-control list" style="display:none;"></datalist>
+								</div>
+						    	<div class="col">
+						      		<input type="text" list="destino" name="destino" id="filtroDestino" class="form-control filter" placeholder="Destino">
+						      		<datalist id="destino" class="form-control list" style="display:none;"></datalist>
+						    	</div>
+						    </div>
+						    <h5>Fechas:</h5>
+						    <div class="form-row">
+						    	<div class="col">
+							   		<input type="date" class="form-control" placeholder="Ida" id="fechaIda">
+							    </div>
+							    <div class="col">
+							        <input type="date" class="form-control" placeholder="Vuelta" id="fechaRegreso">
+						   		</div>
+							</div>
+							<h5>Pasajeros y clase:</h5>
+							<div class="form-row align-items-center">
+		    					<div class="col-auto my-1">
+		      						<select class="custom-select mr-sm-2" id="adultos">
+		        						<option selected>Adultos</option>
+		        						<option value="1">1</option>
+		        						<option value="2">2</option>
+		        						<option value="3">3</option>
+		        						<option value="4">4</option>
+	      							</select>
+	    						</div>
+	    						<div class="col-auto my-1">
+		      						<select class="custom-select mr-sm-2" id="niños">
+		        						<option selected>Niños</option>
+		        						<option value="0">0</option>
+		        						<option value="1">1</option>
+		        						<option value="2">2</option>
+		        						<option value="3">3</option>
+	      							</select>
+	    						</div>
+		    					<div class="col-auto my-1">
+		      						<select class="custom-select mr-sm-2" id="categoria">
+		        						<option selected>Selecionar clase...</option>
+		        						<option value="Economy">Economy</option>
+		        						<option value="Premium economy">Premium economy</option>
+		        						<option value="Ejecutiva/Business">Ejecutiva/Business</option>
+		        						<option value="Primera clase">Primera clase</option>
+	      							</select>
+	    						</div>
+	    						<div class="col-auto my-1">
+		      						<button type="button" id="btnResults" onclick="saveInfo();results();" class="btn btn-outline-light">Aplicar</button>
+		   				 		</div>
+		  				    </div>
+						</form>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<div class="row">
+			<div id="resultados" class="col-xs-12 col-lg-12"></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-lg-6">
+				<div class="modal fade" id="seleccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div id="seleccionado" class="modal-body"></div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-lg-6">
+				<div class="modal fade" id="confirmacionCompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div id="confirmar" class="modal-body"></div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-lg-6">
+				<div class="modal fade" id="finDeCompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div id="finalizar" class="modal-body"></div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-xs-12">
+				<p class="text-center">2021 <i class="far fa-copyright"></i> Copyright JUSTFly. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+	<!-- AOS JS -->
+  	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
+	<script type="text/javascript" src="../js/class.js"></script>
+	<script type="text/javascript" src="../js/functions.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+</body>
+</html>
