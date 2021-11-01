@@ -1,11 +1,3 @@
-const destinos = [];
-const carrito = [];
-const vuelos = [];
-
-let storedName= sessionStorage.getItem('name');
-let bienvenida=document.getElementById('welcome');
-        bienvenida.innerHTML= `Bienvenido/a ${storedName}`;
-
 $.get("../data/destinos.json", function (datos,estado) {
         if (estado == "success") {
                 console.dir(datos);
@@ -18,21 +10,6 @@ $.get("../data/destinos.json", function (datos,estado) {
                         $(".list").append(`<option>${destino.nombre}</option>`);
         }
 });
-
-let btnResults= document.getElementById("btnResults");
-btnResults.onsubmit = (event) => {
-        event.preventDefault(); 
-        event.target;
-}
-
-let origen= sessionStorage.getItem('origen');
-let destino= sessionStorage.getItem('destino');
-let fechaIda= sessionStorage.getItem('fechaIda');
-let fechaRegreso= sessionStorage.getItem('fechaRegreso');
-let adultos= sessionStorage.getItem('adultos');
-let niños= sessionStorage.getItem('niños');
-let categoria= sessionStorage.getItem('categoria');
-
 $.get("../data/vuelos.json", function (datos,estado) {
         if (estado == "success") {
                 console.dir(datos);
@@ -45,8 +22,23 @@ $.get("../data/vuelos.json", function (datos,estado) {
         }
 });
 
-$("#misVuelos").append(`<button id="btnConfirmar" class ='btn btn-outline-light' data-toggle='modal' data-target='#confirmacionCompra'>Confirmar compra</button>`);
-$("#btnConfirmar").on("click", enviarCompra);
+$(document).ready(function() {
+        let storedName= sessionStorage.getItem('name');
+        let bienvenida=document.getElementById('welcome');
+        bienvenida.innerHTML= `Bienvenido/a ${storedName}`;
+        $("#btnResults").on("click",results);
+        $("#misVuelos").append(`<button id="btnConfirmar" class ='btn btn-outline-dark mt-1 mb-1' data-toggle='modal' data-target='#confirmacionCompra'>Confirmar compra</button>
+                                <button id="btnVaciar" class ='btn btn-outline-dark m-1'>Vaciar</button>`);
+
+        $("#btnConfirmar").on("click", enviarCompra);
+        $("#btnVaciar").on("click", vaciarCarrito);
+});
+
+ 
+
+                           
+
+
 
 
 

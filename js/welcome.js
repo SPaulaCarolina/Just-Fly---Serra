@@ -4,7 +4,7 @@ $(window).on('load',function () {
         });
 });
 
-function saveName() {
+$("#btnWelcome").on("click", function () {
         let userName=document.getElementById('userName');
         sessionStorage.setItem('name',userName.value);
-}
+});
