@@ -5,8 +5,6 @@ function saveInfo() {
         sessionStorage.setItem('destino',storageDestino.value);
         let storageIda= document.getElementById('fechaIda'); 
         sessionStorage.setItem('fechaIda',storageIda.value);
-        let storageRegreso= document.getElementById('fechaRegreso');
-        sessionStorage.setItem('fechaRegreso',storageRegreso.value);
         let storageAdultos= document.getElementById('adultos');
         sessionStorage.setItem('adultos',storageAdultos.value);
         let storageNiños= document.getElementById('niños'); 
@@ -14,94 +12,77 @@ function saveInfo() {
         let storageCategoria= document.getElementById('categoria');
         sessionStorage.setItem('categoria',storageCategoria.value);     
 }
-
 function results() {
         saveInfo();
         let origen= sessionStorage.getItem('origen');
         let destino= sessionStorage.getItem('destino');
         let fechaIda= sessionStorage.getItem('fechaIda');
-        let fechaRegreso= sessionStorage.getItem('fechaRegreso');
         let adultos= sessionStorage.getItem('adultos');
         let niños= sessionStorage.getItem('niños');
         let categoria= sessionStorage.getItem('categoria');
 
         const filtros= vuelos.filter(vuelo => (vuelo.origen == origen) && (vuelo.destino == destino));
         console.log(filtros);
+        let pasajeros= parseInt(adultos) + parseInt(niños);
 
-        for (const filtro of filtros) {   
+        for (const filtro of filtros) {  
+                console.log(pasajeros);
+                console.log(filtro.precio);
+                let subtotal= parseInt(filtro.precio) * parseInt(pasajeros);
+                console.log(subtotal);
+                let iva= 0.21 * parseInt(subtotal);
+                let total= 1.21 * parseInt(subtotal); 
                 let divResultados= document.getElementById('resultados');
                 let divVuelos= document.createElement('div');
                 divVuelos.innerHTML= `<div class="card border-light bg-black m-2">
                                                 <div class="card-body">
-                                                        <h5>ID: ${filtro.id}. Destino: ${filtro.destino}</h5>
-                                                        <h4>Fecha: ${filtro.fecha}.<h4>
-                                                        <h4>${filtro.nombre}</h4>
-                                                        <h4>$${filtro.precio}USD.</h4>
-                                                        <button type='button' id='${filtro.id}' class ='btn btn-outline-light btnCompra' data-toggle='modal' data-target='#seleccion' aria-label="Close">Comprar</button>
+                                                        <h3>${filtro.nombre}. Precio: $${filtro.precio}USD.</h3>
+                                                        <h4>Origen: ${filtro.origen}. Destino: ${filtro.destino}</h4>
+                                                        <h4>Fecha: ${filtro.fecha}. Hora: ${filtro.hora}</h4>
+                                                        <h4>Clase: ${categoria}. Cantidad de adultos: ${adultos}. Cantidad de niños: ${niños}.</h4>
+                                                        <h4>Subtotal: $${subtotal}.</h4>
+                                                        <h4>IVA: $${iva}.
+                                                        <h4>Total a pagar: $${total}.</h4>
+                                                        <button type='button' id='${filtro.id}' class ='btn btn-outline-light btnCompra'>Comprar</button>
                                                 </div>
                                         </div>`;
                 divResultados.appendChild(divVuelos);
         }
-        let buttons= document.getElementsByClassName('btnCompra');
-        console.log(buttons);
-        
-        for (const button of buttons) {
-                button.addEventListener('click',seleccionados);
-        }
-}
-
-function seleccionados() {
-        let seleccion= vuelos.find(vuelo => vuelo.id == this.id);
-        console.log(`Has seleccionado el vuelo ${seleccion.nombre}`);
-
-        let pasajeros= parseInt(adultos.value) + parseInt(niños.value);
-        let subtotal= parseInt(seleccion.precio) * parseInt(pasajeros);
-        console.log(subtotal);
-        let iva= 0.21 * parseInt(subtotal);
-        let total= 1.21 * parseInt(subtotal);    
-
-        let select= document.getElementById('seleccionado');
-        let divSeleccion= document.createElement('div');
-        divSeleccion.innerHTML= `<h5>Has seleccionado el vuelo ${seleccion.nombre} en la categoria ${categoria.value}.</h5>
-                                        <h5>Detalle del vuelo:</h5>
-                                        <p>Fecha: ${seleccion.fecha}. Hora: ${seleccion.hora}</p>
-                                        <p>Origen: ${seleccion.origen}. Destino: ${seleccion.destino}</p>
-                                        <p>Clase: ${categoria.value}. Precio: $${seleccion.precio}USD.</p>
-                                        <p>Cantidad de adultos: ${adultos.value}. Cantidad de niños: ${niños.value}.</p>
-                                        <p>Subtotal: $${subtotal}.</p>
-                                        <p>IVA: $${iva}.
-                                        <p>Total a pagar: $${total}.</p>
-                                        <h5>¿Desea continuar?</h5>
-                                        <buttton type='button' id='${seleccion.id}' class ='btn btn-outline-light btn-seleccion' data-dismiss='modal' aria-label="Close">Comprar</button>`;
-        select.appendChild(divSeleccion);
-         $(".btn-seleccion").click(seleccionar);
+        $(".btnCompra").click(seleccionar);    
 }
 function seleccionar(event){
         event.preventDefault();
-                idVuelo= event.target.id;
-                const existente=carrito.find(vuelo => vuelo.id == idVuelo);
-                if (existente == undefined) {
-                        const seleccionado = vuelos.find(vuelo => vuelo.id == idVuelo);
-                        localStorage.setItem('idVuelo',JSON.stringify(seleccionado));
-                        carrito.push(seleccionado);    
-                }else{
-                        existente.agregarCantidad(1);
-                }   
-                carritoUI(carrito);
+        idVuelo= event.target.id;
+        const seleccion=carrito.find(vuelo => vuelo.id == idVuelo);
+        if (seleccion == undefined) {
+                const seleccionado = vuelos.find(vuelo => vuelo.id == idVuelo);
+                localStorage.setItem('idVuelo',JSON.stringify(seleccionado));
+                carrito.push(seleccionado);    
+        }   
+        carritoUI(carrito);
 }
 function carritoUI(carrito){
         $("#miSeleccion").html(carrito.length);
+        $("#misVuelos").empty();        
         for (const vuelo of carrito) {
                 let cantidad= parseInt(adultos.value) + parseInt(niños.value);
-                let totalProducto= 1.21 * (parseInt(cantidad) * (parseInt(vuelo.precio)));
-                $("#misVuelos").prepend(`<p> ${vuelo.nombre}. $${vuelo.precio}.</p>
+                let totalProducto= 1.21 * parseInt(cantidad) * parseInt(vuelo.precio);
+                
+                $("#misVuelos").append(`<p> ${vuelo.nombre}.$${vuelo.precio}.</p>
                         <span class="badge badge-warning">
                         Pasajeros: ${cantidad}</span>
                         <span class="badge badge-warning">
-                        Total: $${totalProducto}</span>
+                        Total: $${totalProducto}USD.</span> 
+                        <a id="${vuelo.id}" class="close btn-delete" >x</a>
                         </p>`);
-        break;
         }
+        $('.btn-delete').on('click', eliminarItem);
+}
+function eliminarItem(event) {
+        event.stopPropagation();
+        carrito = carrito.filter(vuelo => vuelo.id != event.target.id);
+        carritoUI(carrito);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 function enviarCompra() {
         $.post("https://jsonplaceholder.typicode.com/posts",JSON.stringify(carrito), function(respuesta,estado) {
@@ -114,10 +95,6 @@ function enviarCompra() {
                         </form>`;
         finalizarCompra.appendChild(divConfirmacion);
          $("#btnFinalizar").on("click", enviarEmail);
-}
-function vaciarCarrito() {        
-       $("#miSeleccion").empty();
-       $("#misVuelos").empty(); 
 }
 function enviarEmail() {
         let storageEmail= document.getElementById('email'); 

@@ -37,8 +37,10 @@
 				    </ul>
 				    <div id="carrito" class="btn-group dropdown">
 					  <button id="btnCarrito" type="button" class="btn btn-outline-light dropdown-toggle mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mis vuelos <span id="miSeleccion" class="badge badge-light">0</span></button>
-					  <div id="misVuelos" class="dropdown-menu p-2">
-					  </div>
+						<div id="miCompra" class="dropdown-menu p-2">
+							<div id="misVuelos" class="p-2">
+							</div>
+						</div>
 					</div>
 				    <form class="form-inline my-2 my-lg-0">
 				      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -64,7 +66,9 @@
 						  	<div class="form-row">
 						    	<div class="col">
 						      		<input type="text" list="origen" name="origen" id="filtroOrigen" class="form-control filter" placeholder="Origen">
-						    		<datalist id="origen" class="form-control list" style="display:none;"></datalist>
+						    		<datalist id="origen" class="form-control" style="display:none;">
+						    			<option value="buenos aires, argentina">buenos aires, argentina</option>
+						    		</datalist>
 								</div>
 						    	<div class="col">
 						      		<input type="text" list="destino" name="destino" id="filtroDestino" class="form-control filter" placeholder="Destino">
@@ -74,11 +78,8 @@
 						    <h5 class="mt-1">Fechas:</h5>
 						    <div class="form-row">
 						    	<div class="col">
-							   		<input type="date" class="form-control mt-1" placeholder="Ida" id="fechaIda">
+							   		<input type="date" min="2021-11-01" max="2021-11-02" class="form-control mt-1" placeholder="Ida" id="fechaIda">
 							    </div>
-							    <div class="col">
-							        <input type="date" class="form-control mt-1" placeholder="Vuelta" id="fechaRegreso">
-						   		</div>
 							</div>
 							<h5 class="mt-1">Pasajeros y clase:</h5>
 							<div class="form-row align-items-center">
@@ -121,22 +122,6 @@
 		</div> 
 		<div class="row">
 			<div id="resultados" class="col-xs-12 col-lg-12"></div>
-		</div>
-		<div class="row">
-			<div class="col-xs-6 col-lg-6">
-				<div class="modal fade" id="seleccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div id="seleccionado" class="modal-body"></div>
-				    </div>
-				  </div>
-				</div>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-6 col-lg-6">

@@ -1,6 +1,7 @@
 const destinos=[];
 const vuelos = [];
-const carrito = [];
+let carrito = [];
+
 
 
 

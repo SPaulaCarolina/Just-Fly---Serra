@@ -27,11 +27,17 @@ $(document).ready(function() {
         let bienvenida=document.getElementById('welcome');
         bienvenida.innerHTML= `Bienvenido/a ${storedName}`;
         $("#btnResults").on("click",results);
-        $("#misVuelos").append(`<button id="btnConfirmar" class ='btn btn-outline-dark mt-1 mb-1' data-toggle='modal' data-target='#confirmacionCompra'>Confirmar compra</button>
-                                <button id="btnVaciar" class ='btn btn-outline-dark m-1'>Vaciar</button>`);
+        $("#miCompra").append(`<button id="btnConfirmar" class ='btn btn-outline-dark mt-1 mb-1' data-toggle='modal' data-target='#confirmacionCompra'>Confirmar compra</button>`);
 
         $("#btnConfirmar").on("click", enviarCompra);
-        $("#btnVaciar").on("click", vaciarCarrito);
+
+        if("carrito" in localStorage){
+                const datos= JSON.parse(localStorage.getItem('carrito')); 
+                for (const item of datos) {
+                        carrito.push(new Vuelo(item.origen,item.destino,item.fecha,item.hora,item.id,item.nombre,item.precio));
+                }
+                carritoUI(carrito);
+        }    
 });
 
  
