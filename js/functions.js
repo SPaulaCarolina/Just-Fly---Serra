@@ -21,7 +21,7 @@ function results() {
         let niños= sessionStorage.getItem('niños');
         let categoria= sessionStorage.getItem('categoria');
 
-        const filtros= vuelos.filter(vuelo => (vuelo.origen == origen) && (vuelo.destino == destino));
+        const filtros= vuelos.filter(vuelo => (vuelo.origen == origen) && (vuelo.destino == destino) && (vuelo.fecha == fechaIda));
         console.log(filtros);
         let pasajeros= parseInt(adultos) + parseInt(niños);
 
