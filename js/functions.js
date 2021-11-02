@@ -26,10 +26,7 @@ function results() {
         let pasajeros= parseInt(adultos) + parseInt(niños);
 
         for (const filtro of filtros) {  
-                console.log(pasajeros);
-                console.log(filtro.precio);
                 let subtotal= parseInt(filtro.precio) * parseInt(pasajeros);
-                console.log(subtotal);
                 let iva= 0.21 * parseInt(subtotal);
                 let total= 1.21 * parseInt(subtotal); 
                 let divResultados= document.getElementById('resultados');
